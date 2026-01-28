@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, initial-scale=1.0" />
+    <title>Dynamic Random Ad</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+          font-family:Arial, sans-serif;
+                            background-color: #dddddd32;
+
+
+      }
+
+      #ad {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .grid {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 42px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 6px;
+      }
+
+      /* product tile */
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        text-decoration: none;
+        animation: pop 0.4s ease;
+      }
+
+      .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      @keyframes pop {
+        from {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="ad">
+      <div class="grid" id="grid"></div>
+    </div>
+
+    <script>
+      // ----- pretend JSON data -----
+      const products = [
+        {
+          img: "https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036",
+          link: "#1",
+        },
+        {
+          img: "https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036",
+          link: "#2",
+        },
+        {
+          img: "https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036",
+          link: "#3",
+        },
+        {
+          img: "https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036",
+          link: "#4",
+        },
+        {
+          img: "https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036",
+          link: "#5",
+        },
+        {
+          img: "https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036",
+          link: "#6",
+        },
+        {
+          img: "https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036",
+          link: "#7",
+        },
+        {
+          img: "https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036",
+          link: "#8",
+        },
+      ];
+
+      const maxToShow = Math.min(4, products.length);
+
+      const count = Math.floor(Math.random() * maxToShow) + 1;
+
+      const shuffled = [...products].sort(() => Math.random() - 0.5);
+
+      const selected = shuffled.slice(0, count);
+
+      const grid = document.getElementById("grid");
+      selected.forEach((p) => {
+        const a = document.createElement("a");
+        a.className = "item";
+        a.href = p.link;
+        a.target = "_blank";
+        a.innerHTML = `<img src="${p.img}">`;
+        grid.appendChild(a);
+      });
+    </script>
+  </body>
+</html>

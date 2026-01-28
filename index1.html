@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, initial-scale=1.0" />
+    <title>Creative Ad 300x250</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+          font-family:Arial, sans-serif;
+                  background-color: #dddddd32;
+
+
+      }
+
+      #ad {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Header */
+      .head {
+        position: absolute;
+        top: 10px;
+        left: 12px;
+        right: 12px;
+        color: #000;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      .sub {
+        font-size: 10px;
+        opacity: 0.9;
+      }
+
+      /* Slider area */
+      .slider {
+        position: absolute;
+        top: 36px;
+        bottom: 44px;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        text-decoration: none;
+      }
+
+      .card img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+      }
+
+      .card.active {
+        opacity: 1;
+        z-index: 2;
+        animation: pop 0.9s ease forwards;
+      }
+
+      .card.leaving {
+        animation: drop 0.55s ease forwards;
+      }
+
+      /* Ribbon */
+      .ribbon {
+        position: absolute;
+        top: 8px;
+        right: -28px;
+        width: 80px;
+        text-align: center;
+        background: #f43f5e;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 900;
+        transform: rotate(35deg);
+        padding: 3px 0;
+      }
+
+      /* CTA bar */
+      .ctabar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 38px;
+        background: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cta {
+        padding: 7px 20px;
+        border-radius: 40px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 12px;
+        animation: pulse 2.4s infinite;
+      }
+
+      /* Animations */
+      @keyframes pop {
+        0% {
+          transform: translateY(35px) scale(0.6);
+          opacity: 0;
+        }
+        55% {
+          transform: translateY(2px) scale(1.05);
+        }
+        100% {
+          transform: translateY(8px) scale(0.92);
+          opacity: 1;
+        }
+      }
+      @keyframes drop {
+        to {
+          transform: translateY(40px) rotate(-10deg) scale(0.6);
+          opacity: 0;
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="ad">
+      <div class="glow"></div>
+
+      <div class="head">
+        Exclusive • Today Only
+        <div class="sub">Grab the best deals before they go</div>
+      </div>
+
+      <div class="slider">
+        <!-- Product 1 -->
+        <a class="card active" href="https://your-link-1.com" target="_blank">
+          <div class="ribbon">25% OFF</div>
+          <img
+            src="https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036"
+          />
+        </a>
+
+        <!-- Product 2 -->
+        <a class="card" href="https://your-link-2.com" target="_blank">
+          <div class="ribbon">HOT DEAL</div>
+          <img
+            src="https://ik.imagekit.io/gku4adhog/iCloud_GeoExpansion_Static_DataSeat_AutomaticBackup_300x250_IN_2x-01.jpg?updatedAt=1756193150723"
+          />
+        </a>
+
+        <!-- Product 3 -->
+        <a class="card" href="https://your-link-3.com" target="_blank">
+          <div class="ribbon">NEW</div>
+          <img
+            src="https://ik.imagekit.io/gku4adhog/MAYA%202025%20ACQUIREFRESH%20OMNIBUS%201080X1080%20(1).jpg?updatedAt=1755086051385"
+          />
+        </a>
+      </div>
+
+      <div class="ctabar">
+        <a class="cta" href="https://your-main-offer.com" target="_blank">
+          BLINKIT
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const cards = document.querySelectorAll(".card");
+      let i = 0;
+
+      function rotate() {
+        const cur = cards[i];
+        cur.classList.remove("active");
+        cur.classList.add("leaving");
+
+        i = (i + 1) % cards.length;
+
+        const nxt = cards[i];
+        nxt.classList.add("active");
+
+        setTimeout(() => cur.classList.remove("leaving"), 550);
+      }
+      setInterval(rotate, 3000);
+    </script>
+  </body>
+</html>

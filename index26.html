@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
+      }
+
+      .ad-container {
+        width: 300px;
+        height: 250px;
+        background: #c8e836;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .brand-name {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        color: #000;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .offer-badge {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        background: #ff4444;
+        color: white;
+        padding: 6px 16px;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .headline {
+        position: absolute;
+        top: 45px;
+        left: 12px;
+        color: #000;
+        font-size: 22px;
+        font-weight: 500;
+      }
+
+      .time-badge {
+        position: absolute;
+        top: 130px;
+        left: 12px;
+        color: #000;
+        font-size: 36px;
+        font-weight: 900;
+      }
+
+      .time-text {
+        font-size: 18px;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+
+      .products-container {
+        position: absolute;
+        top: 50px;
+        right: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .product-box {
+        background: white;
+        border-radius: 8px;
+        padding: 5px;
+        height: 85px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .subtext {
+        position: absolute;
+        bottom: 52px;
+        left: 12px;
+        color: #000;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .cta-button {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        background: #ff4444;
+        color: white;
+        padding: 9px 28px;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 14px;
+        transition: transform 0.2s;
+      }
+
+      .cta-button:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ad-container" onclick="handleClick()">
+      <div class="brand-name">FRESHGO</div>
+      <div class="offer-badge">70% OFF</div>
+
+      <div class="headline">Fresh<br />Groceries</div>
+
+      <div class="time-badge">15 <span class="time-text">min</span></div>
+
+      <div class="products-container">
+        <div class="product-box">
+          <img
+            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
+            alt="Apple"
+          />
+        </div>
+        <div class="product-box">
+          <img
+            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
+            alt="Eggs"
+          />
+        </div>
+      </div>
+
+      <div class="subtext">Free delivery</div>
+
+      <div class="cta-button">Order Now</div>
+    </div>
+
+    <script>
+      function handleClick() {
+        console.log("Variant 3 Ad clicked!");
+        // window.open('https://your-landing-page.com', '_blank');
+      }
+    </script>
+  </body>
+</html>

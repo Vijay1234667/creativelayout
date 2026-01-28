@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, initial-scale=1.0" />
+    <title>70/30 Split Ad</title>
+
+    <style>
+      html,
+     body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
+      }
+
+      #ad {
+        width: 300px;
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .left img {
+        width: 90%;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .left img.hide {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+
+      .right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30%;
+        height: 100%;
+        color: #000;
+        padding: 10px 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .tag {
+        background: #facc15;
+        color: #111;
+        font-size: 13px;
+        font-weight: 900;
+        padding: 3px 6px;
+        border-radius: 6px;
+        width: max-content;
+      }
+
+      .title {
+        font-size: 14px;
+        font-weight: 900;
+        margin-top: 6px;
+      }
+
+      .price {
+        font-size: 12px;
+        margin-top: 4px;
+      }
+
+      .old {
+        text-decoration: line-through;
+        opacity: 0.7;
+      }
+
+    
+    </style>
+  </head>
+
+  <body>
+    <div id="ad">
+      <div class="left">
+        <a id="productLink" target="_blank">
+          <img id="productImg" src="" />
+        </a>
+      </div>
+
+      <div class="right">
+        <div>
+          <div class="tag">70% OFF</div>
+          <div class="title" id="pName">—</div>
+          <div class="price">
+            <span class="old" id="oldPrice">—</span><br />
+            <span id="newPrice">—</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          img: "https://assets.mobavenue.com/static/blinkit/ds/pepsi.png",
+          name: "Wireless Headphones",
+          old: "₹2999",
+          price: "₹899",
+          link: "#1",
+        },
+        {
+          img: "https://assets.mobavenue.com/static/blinkit/ds/staplesrice.png",
+          name: "Smart Watch",
+          old: "₹4999",
+          price: "₹1499",
+          link: "#2",
+        },
+  
+      ];
+
+      const img = document.getElementById("productImg");
+      const link = document.getElementById("productLink");
+      const name = document.getElementById("pName");
+      const oldP = document.getElementById("oldPrice");
+      const newP = document.getElementById("newPrice");
+
+      let index = Math.floor(Math.random() * products.length);
+
+      function show(i) {
+        const p = products[i];
+        img.classList.add("hide");
+
+        setTimeout(() => {
+          img.src = p.img;
+          link.href = p.link;
+          name.textContent = p.name;
+          oldP.textContent = p.old;
+          newP.textContent = p.price;
+
+          img.classList.remove("hide");
+        }, 300);
+      }
+
+      // first show
+      show(index);
+
+      // auto rotate
+      setInterval(() => {
+        index = (index + 1) % products.length;
+        show(index);
+      }, 3500);
+    </script>
+  </body>
+</html>

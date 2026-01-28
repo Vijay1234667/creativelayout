@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=300, initial-scale=1.0" />
+  <title>HTML Navigator</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: #eeeeee;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* iframe = creative area */
+    .creative-frame {
+      width: 300px;
+      height: 250px;
+      border: none;
+      background: #fff;
+    }
+
+    /* buttons */
+    .controls {
+      margin-top: 16px;
+    }
+
+    .nav-btn {
+      padding: 10px 26px;
+      background: #217293;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 6px;
+      font-size: 14px;
+    }
+
+    .nav-btn:hover {
+      background: #195b75;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- IFRAME -->
+    <iframe
+      id="creativeFrame"
+      class="creative-frame"
+      src="index1.html">
+    </iframe>
+
+    <!-- BUTTONS (always visible) -->
+    <div class="controls">
+      <button class="nav-btn" id="prevBtn">Prev</button>
+      <button class="nav-btn" id="nextBtn">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const frame = document.getElementById("creativeFrame");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
+    // 👇 Add all your 20 HTML files here
+    const pages = [
+      "index1.html",
+      "index2.html",
+      "index3.html",
+      "index4.html",
+      "index5.html",
+      "index6.html",
+      "index7.html",
+      "index9.html",
+      "index10.html",
+      "index11.html",
+      "index12.html",
+      "index13.html",
+      "index14.html",
+      "index15.html",
+      "index16.html",
+      "index17.html",
+      "index18.html",
+      "index19.html",
+      "index20.html",
+      "index21.html",
+      "index22.html",
+      "index23.html",
+      "index24.html",
+      "index25.html",
+      "index26.html",
+      "index27.html",
+      "index28.html",
+      "index29.html",
+    ];
+
+    let j = 0;
+
+    nextBtn.addEventListener("click", () => {
+      j = (j + 1) % pages.length;
+      frame.src = pages[j];
+    });
+
+    prevBtn.addEventListener("click", () => {
+      j = (j - 1 + pages.length) % pages.length;
+      frame.src = pages[j];
+    });
+  </script>
+</body>
+</html>

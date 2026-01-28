@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+                          background-color: #dddddd32;
+
+      }
+
+      .ad-container {
+        width: 300px;
+        height: 250px;
+        background: linear-gradient(135deg, #ff6b3d 0%, #ff8f5a 100%);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+      }
+
+      .brand-name {
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .flash-badge {
+        background: #ffeb3b;
+        color: #000;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 900;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .product-images {
+        position: absolute;
+        left: 15px;
+        top: 70px;
+        display: flex;
+        gap: 8px;
+      }
+
+      .product-card {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .product-card:nth-child(1) {
+        height: 105px;
+        z-index: 3;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .text-content {
+        position: absolute;
+        right: 15px;
+        top: 70px;
+        text-align: right;
+        max-width: 150px;
+      }
+
+      .tag {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .headline {
+        color: white;
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+
+      .price-section {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .old-price {
+        color: #fff;
+        text-decoration: line-through;
+      }
+
+      .new-price {
+        color: #000;
+        font-size: 20px;
+      }
+
+      .condition {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .cta-button {
+        position: absolute;
+        bottom: 5px;
+        left: 15px;
+        right: 15px;
+        background: white;
+        color: #ff6b3d;
+        padding: 7px;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 13px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="ad-container">
+      <div class="header">
+        <div class="logo-section">
+          <div class="brand-name">Instamart</div>
+        </div>
+        <div class="flash-badge">
+          <span class="lightning"></span>
+          <span>FLASH SALE</span>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="product-images">
+          <div class="product-card">
+            <img
+              src="https://assets.mobavenue.com/static/blinkit/ds/staplesoil.png"
+              alt="Apple"
+            />
+          </div>
+        </div>
+
+        <div class="text-content">
+          <div class="tag">Daily Essentials</div>
+          <div class="headline">Grocery in<br />10 Minutes</div>
+          <div class="price-section">
+            <div class="old-price">₹299</div>
+            <div class="new-price">₹99</div>
+          </div>
+          <div class="condition">*On orders above ₹199</div>
+        </div>
+      </div>
+
+      <div class="cta-button">
+        LOGO
+        <span class="arrow">→</span>
+      </div>
+    </div>
+
+    <script>
+      function handleClick() {
+        console.log("Instamart ad clicked!");
+        // window.open('https://your-landing-page.com', '_blank');
+      }
+    </script>
+  </body>
+</html>

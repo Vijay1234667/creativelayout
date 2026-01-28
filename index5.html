@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, initial-scale=1.0" />
+    <title>App Install Ad — 300x250</title>
+
+    <style>
+      html,
+     body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
+      }
+
+
+      #ad {
+        width: 300px;
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(145deg, #3b82f6, #928435 65%);
+      }
+
+      .badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: #facc15;
+        color: #111;
+        font-weight: 900;
+        font-size: 11px;
+      }
+
+      /* headline */
+      .head {
+        position: absolute;
+        top: 36px;
+        left: 12px;
+        right: 12px;
+        color: #fff;
+        font-weight: 900;
+        font-size: 15px;
+        letter-spacing: 0.4px;
+      }
+
+      .phone {
+        position: absolute;
+        right: -6px;
+        top: 58px;
+        width: 150px;
+        height: 165px;
+        border-radius: 22px;
+        background: #152a0f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+
+      .phone img {
+        width: 120px;
+        height: 140px;
+        border-radius: 12px;
+        object-fit: contain;
+        animation: float 2.8s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+
+      /* left info card */
+      .info {
+        position: absolute;
+        left: 10px;
+        bottom: 56px;
+        width: 150px;
+        border-radius: 14px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      }
+
+      .app-name {
+        font-weight: 900;
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+
+      .stars {
+        color: #facc15;
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .small {
+        font-size: 10px;
+        opacity: 0.9;
+      }
+
+      /* CTA bar */
+      .ctabar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cta {
+        padding: 8px 26px;
+        border-radius: 30px;
+        background: #22c55e;
+        color: #03240f;
+        font-weight: 900;
+        font-size: 12px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -120%;
+        width: 70%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.9),
+          transparent
+        );
+        animation: shine 2.2s infinite;
+      }
+
+      @keyframes shine {
+        0% {
+          left: -120%;
+        }
+        60% {
+          left: 135%;
+        }
+        100% {
+          left: 135%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="ad">
+      <div class="badge">FEATURED APP</div>
+
+      <div class="head">Discover the app everyone is talking about</div>
+
+      <a class="phone" href="https://your-install-link.com" target="_blank">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJXn35CF9QJEbb2OP_02-0iKPPf6xpBT8jZg&s"
+        />
+      </a>
+
+      <div class="info">
+        <div class="app-name">Super App</div>
+        <div class="stars">★★★★★ 4.9</div>
+        <div class="small">Trusted by 5M+ users</div>
+      </div>
+
+      <div class="ctabar">
+        <a class="cta" href="https://your-install-link.com" target="_blank">
+          INSTALL NOW
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

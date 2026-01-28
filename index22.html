@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=300, height=250, initial-scale=1.0" />
+
+  <style>
+    html,
+   body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
+      }
+
+    /* Banner */
+    #ad {
+      width: 300px;
+      height: 250px;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    /* TOP IMAGES */
+    .top {
+      height: 150px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .img-box {
+      flex: 1;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* BOTTOM OFFER STRIP */
+    .bottom {
+      margin-top: 10px;
+      height: 70px;
+      background: #f9fafb;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      box-sizing: border-box;
+    }
+
+    /* Logo */
+    .logo {
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    /* Offer text */
+    .offer {
+      font-size: 14px;
+      font-weight: 700;
+      color: #16a34a;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ad">
+    <!-- TOP IMAGES -->
+    <div class="top">
+      <div class="img-box">
+        <a href="https://www.google.com/">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600" />
+
+        </a>
+      </div>
+
+      <div class="img-box">
+        <a href="https://www.google.com/"> <img
+            src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600" />
+        </a>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="logo">Your Logo</div>
+      <div class="offer">Mega Offers 🔥</div>
+    </div>
+  </div>
+</body>
+
+</html>

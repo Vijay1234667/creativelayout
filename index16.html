@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, initial-scale=1.0" />
+
+    <style>
+      html,
+     body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
+      }
+
+      /* AD */
+      #ad {
+        width: 300px;
+        height: 250px;
+        background: #fff;
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Timer */
+      .timer {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: #ef4444;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 900;
+        padding: 4px 8px;
+        border-radius: 8px;
+        z-index: 10;
+      }
+
+      /* Feed */
+      .feed {
+        height: 208px;
+        overflow-y: auto;
+        scrollbar-width: none;
+      }
+
+      .feed::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Card */
+      .card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        margin: 6px;
+        border-radius: 12px;
+        background: #f8fafc;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+        text-decoration: none;
+        color: #000;
+      }
+
+      .card img {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
+      .title {
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .price {
+        font-size: 11px;
+      }
+
+      .old {
+        text-decoration: line-through;
+        opacity: 0.6;
+      }
+
+      .new {
+        color: #16a34a;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="ad">
+      <div class="timer" id="timer">00:08</div>
+
+      <div class="feed" id="feed">
+        <div id="track">
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300"
+            />
+            <div>
+              <div class="title">Headphones</div>
+              <div class="price">
+                <span class="old">₹2999</span> <span class="new">₹899</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=300"
+            />
+            <div>
+              <div class="title">Smart Watch</div>
+              <div class="price">
+                <span class="old">₹4999</span> <span class="new">₹1699</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1600180758890-6d09c5b32a9c?w=300"
+            />
+            <div>
+              <div class="title">Running Shoes</div>
+              <div class="price">
+                <span class="old">₹3999</span> <span class="new">₹1399</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300"
+            />
+            <div>
+              <div class="title">Backpack</div>
+              <div class="price">
+                <span class="old">₹1999</span> <span class="new">₹699</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Duplicate for infinite loop -->
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300"
+            />
+            <div>
+              <div class="title">Headphones</div>
+              <div class="price">
+                <span class="old">₹2999</span> <span class="new">₹899</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=300"
+            />
+            <div>
+              <div class="title">Smart Watch</div>
+              <div class="price">
+                <span class="old">₹4999</span> <span class="new">₹1699</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1600180758890-6d09c5b32a9c?w=300"
+            />
+            <div>
+              <div class="title">Running Shoes</div>
+              <div class="price">
+                <span class="old">₹3999</span> <span class="new">₹1399</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300"
+            />
+            <div>
+              <div class="title">Backpack</div>
+              <div class="price">
+                <span class="old">₹1999</span> <span class="new">₹699</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const feed = document.getElementById("feed");
+      let paused = false;
+
+      /* Pause on hover or touch */
+      feed.addEventListener("mouseenter", () => (paused = true));
+      feed.addEventListener("mouseleave", () => (paused = false));
+      feed.addEventListener("touchstart", () => (paused = true));
+      feed.addEventListener("touchend", () => (paused = false));
+
+      /* Infinite auto scroll */
+      setInterval(() => {
+        if (!paused) {
+          feed.scrollTop += 1;
+          if (feed.scrollTop >= feed.scrollHeight / 2) {
+            feed.scrollTop = 0;
+          }
+        }
+      }, 20);
+
+      /* Timer */
+      let t = 8;
+      const timer = document.getElementById("timer");
+      setInterval(() => {
+        const m = Math.floor(t / 60);
+        const s = t % 60;
+        timer.textContent =
+          String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+        if (t <= 0) timer.style.display = "none";
+        t--;
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
+      }
+
+      .ad-container {
+        width: 300px;
+        height: 250px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .offer-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: #ff4757;
+        color: white;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 13px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .brand-name {
+        position: absolute;
+        left: 15px;
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+        text-transform: lowercase;
+        letter-spacing: 1px;
+      }
+
+      .headline {
+        position: absolute;
+        top: 40px;
+        left: 15px;
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .products-grid {
+        position: absolute;
+        bottom: 45px;
+        left: 15px;
+        right: 15px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .product-box {
+        background: white;
+        border-radius: 8px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        animation: fadeInUp 0.6s ease-out backwards;
+      }
+
+      .product-box:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .product-box:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .product-box:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .product-box:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      .product-box:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+
+      .product-box:nth-child(6) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .product-box img {
+        width: 100%;
+        height: 45px;
+        object-fit: contain;
+      }
+
+      .cta-button {
+        position: absolute;
+        bottom: 2px;
+        left: 15px;
+        right: 15px;
+        background: white;
+        color: #667eea;
+        padding: 10px;
+        text-align: center;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 14px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+      }
+
+      .cta-button:hover {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="ad-container" onclick="handleClick()">
+      <div class="offer-badge">70% OFF</div>
+      <div class="brand-name">zepto</div>
+      <div class="headline">Groceries in 10 Minutes</div>
+
+      <div class="products-grid">
+        <div class="product-box">
+          <a href="https://www.google.com/">
+            <img
+              src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
+              alt="Apple"
+            />
+          </a>
+        </div>
+        <div class="product-box">
+          <a href="https://www.google.com/">
+            <img
+              src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
+              alt="Eggs"
+            />
+          </a>
+        </div>
+        <div class="product-box">
+          <img
+            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
+            alt="Tomato"
+          />
+        </div>
+        <div class="product-box">
+          <img
+            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
+            alt="Vegetables"
+          />
+        </div>
+        <div class="product-box">
+          <img
+            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
+            alt="Bread"
+          />
+        </div>
+        <div class="product-box">
+          <img
+            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
+            alt="Banana"
+          />
+        </div>
+      </div>
+
+      <div class="cta-button">Order Now →</div>
+    </div>
+
+    <script>
+      function handleClick() {
+        console.log("Ad clicked!");
+        // window.open('https://your-landing-page.com', '_blank');
+      }
+    </script>
+  </body>
+</html>

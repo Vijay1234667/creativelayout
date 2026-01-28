@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, height=250, initial-scale=1.0" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
+      }
+
+      /* Banner */
+      #ad {
+        width: 300px;
+        height: 250px;
+        background: #fff;
+        display: flex;
+      }
+
+      /* Left image */
+      .left {
+        width: 60%;
+        height: 100%;
+      }
+
+      .left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Right content */
+      .right {
+        width: 40%;
+        padding: 14px 10px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /* Offer text */
+      .offer {
+        font-size: 16px;
+        font-weight: 900;
+        line-height: 1.2;
+      }
+
+      .offer span {
+        color: #16a34a;
+        font-size: 18px;
+      }
+
+      /* Sub text */
+      .sub {
+        font-size: 11px;
+        color: #374151;
+        margin-top: 6px;
+      }
+
+      /* Badge */
+      .badge {
+        background: #000;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 6px;
+        align-self: flex-start;
+      }
+
+      /* CTA */
+      .cta {
+        background: #22c55e;
+        color: #000;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 8px 10px;
+        border-radius: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="https://example.com" target="_blank">
+      <div id="ad">
+        <div class="left">
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600"
+          />
+        </div>
+
+        <div class="right">
+          <div>
+            <div class="badge">Fast Delivery ⚡</div>
+
+            <div class="offer">Just <span>₹149</span></div>
+
+            <div class="sub">
+              Fresh groceries<br />
+              at your doorstep
+            </div>
+          </div>
+
+          <div class="cta">Order Now</div>
+        </div>
+      </div>
+    </a>
+  </body>
+</html>

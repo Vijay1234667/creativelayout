@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, initial-scale=1.0" />
+    <title>App Install Ad — Dynamic</title>
+
+    <style>
+      html,
+   body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
+      }
+
+      #ad {
+        width: 300px;
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(145deg, #3b82f6, #020617 65%);
+      }
+
+      .badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: #facc15;
+        color: #111;
+        font-weight: 900;
+        font-size: 11px;
+      }
+
+      .head {
+        position: absolute;
+        top: 36px;
+        left: 12px;
+        right: 12px;
+        color: #fff;
+        font-weight: 900;
+        font-size: 15px;
+        letter-spacing: 0.4px;
+      }
+
+      /* phone preview */
+      .phone {
+        position: absolute;
+        right: -6px;
+        top: 58px;
+        width: 150px;
+        height: 165px;
+        border-radius: 22px;
+        background: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+          0 12px 30px rgba(0, 0, 0, 0.6),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      .phone img {
+        width: 120px;
+        height: 140px;
+        border-radius: 12px;
+        object-fit: contain;
+        animation: float 2.8s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+
+      /* left info card */
+      .info {
+        position: absolute;
+        left: 10px;
+        bottom: 56px;
+        width: 150px;
+        border-radius: 14px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        box-shadow:
+          0 16px 30px rgba(0, 0, 0, 0.45),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      }
+
+      .app-name {
+        font-weight: 900;
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+
+      .stars {
+        color: #facc15;
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .small {
+        font-size: 10px;
+        opacity: 0.9;
+      }
+
+      /* CTA bar */
+      .ctabar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cta {
+        padding: 8px 26px;
+        border-radius: 30px;
+        background: #22c55e;
+        color: #03240f;
+        font-weight: 900;
+        font-size: 12px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -120%;
+        width: 70%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.9),
+          transparent
+        );
+        animation: shine 2.2s infinite;
+      }
+      @keyframes shine {
+        0% {
+          left: -120%;
+        }
+        60% {
+          left: 135%;
+        }
+        100% {
+          left: 135%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="ad">
+      <div class="badge">FEATURED APP</div>
+
+      <div class="head" id="titleText">
+        Discover the app everyone is talking about
+      </div>
+
+      <a class="phone" id="phoneLink" target="_blank">
+        <img id="phoneImg" src="" />
+      </a>
+
+      <div class="info">
+        <div class="app-name" id="appName">—</div>
+        <div class="stars" id="rating">★★★★★ 4.9</div>
+        <div class="small" id="users">—</div>
+      </div>
+
+      <div class="ctabar">
+        <a class="cta" id="ctaBtn" target="_blank"> INSTALL NOW </a>
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          name: "Super App",
+          img: "https://www.finowings.com/admin/media/blinkit-case-study.jpeg",
+          link: "https://link-1.com",
+          users: "Trusted by 5M+ users",
+        },
+        {
+          name: "Ultra Deals",
+          img: "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2024-12/Aa%20Jejdbskwk.JPG",
+          link: "https://link-2.com",
+          users: "Top savings app",
+        },
+        {
+          name: "Quick Pay",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzZQJeYxZzWsTT5z2sG5W9eR71Hlzs-KC4w&s",
+          link: "https://link-3.com",
+          users: "Secure payments app",
+        },
+        {
+          name: "ShopMax",
+          img: "https://cdn.growthjockey.com/blogs/registration-and-setup-guide-blinkit-484d94-1366x1021.jpeg",
+          link: "https://link-4.com",
+          users: "Free delivery offers",
+        },
+      ];
+
+      let index = Math.floor(Math.random() * products.length);
+
+      function showProduct(i) {
+        const p = products[i];
+
+        phoneImg.src = p.img;
+        phoneLink.href = p.link;
+        ctaBtn.href = p.link;
+        appName.textContent = p.name;
+        users.textContent = p.users;
+      }
+
+      showProduct(index);
+
+      setInterval(() => {
+        index = (index + 1) % products.length;
+        showProduct(index);
+      }, 4000);
+    </script>
+  </body>
+</html>

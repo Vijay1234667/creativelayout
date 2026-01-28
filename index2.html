@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, initial-scale=1.0" />
+    <title>Click Magnet Ad 300x250</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+          font-family:Arial, sans-serif;
+                            background-color: #dddddd32;
+
+
+      }
+
+      #ad {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ring {
+        position: absolute;
+        width: 130px;
+        height: 105px;
+        border: 2px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.35s ease;
+      }
+
+      .tile {
+        position: absolute;
+        width: 120px;
+        height: 95px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.25s ease;
+      }
+
+      .tile img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .tile:hover {
+        transform: scale(1.08);
+      }
+
+      /* positions */
+      .tl {
+        top: 10px;
+        left: 10px;
+      }
+      .tr {
+        top: 10px;
+        right: 10px;
+      }
+      .bl {
+        bottom: 42px;
+        left: 10px;
+      }
+      .br {
+        bottom: 42px;
+        right: 10px;
+      }
+
+      /* CTA bar */
+      .ctabar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 38px;
+        background: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cta {
+        position: relative;
+        padding: 7px 26px;
+        color: #fff;
+        font-weight: 900;
+        font-size: 12px;
+        text-decoration: none;
+        overflow: hidden;
+      }
+
+      /* pulse hint on tiles */
+      @keyframes tap {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.06);
+        }
+      }
+      .highlight {
+        animation: tap 1.2s ease infinite;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="ad">
+      <div class="ring" id="ring"></div>
+
+      <!-- TOP LEFT -->
+      <a class="tile tl" id="p1" href="https://link-1.com" target="_blank">
+        <img
+          src="https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036"
+        />
+      </a>
+
+      <!-- TOP RIGHT -->
+      <a class="tile tr" id="p2" href="https://link-2.com" target="_blank">
+        <img
+          src="https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036"
+        />
+      </a>
+
+      <!-- BOTTOM LEFT -->
+      <a class="tile bl" id="p3" href="https://link-3.com" target="_blank">
+        <img
+          src="https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036"
+        />
+      </a>
+
+      <!-- BOTTOM RIGHT -->
+      <a class="tile br" id="p4" href="https://link-4.com" target="_blank">
+        <img
+          src="https://ik.imagekit.io/gku4adhog/GDS_EV_BEV_PEPSI%20CAN_ENG_PF_D10_300x250.png?updatedAt=1759998177036"
+        />
+      </a>
+
+      <div class="ctabar">
+        <a class="cta" href="https://main-offer.com" target="_blank">
+          Blinkit
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const tiles = [p1, p2, p3, p4];
+      const ring = document.getElementById("ring");
+      let i = 0;
+
+      /* spotlight cycle — draws eye toward each product */
+      function focusNext() {
+        const t = tiles[i];
+        tiles.forEach((el) => el.classList.remove("highlight"));
+
+        const r = t.getBoundingClientRect();
+        const container = document.getElementById("ad").getBoundingClientRect();
+
+        ring.style.opacity = 1;
+        ring.style.top = t.offsetTop - 4 + "px";
+        ring.style.left = t.offsetLeft - 4 + "px";
+
+        t.classList.add("highlight");
+
+        i = (i + 1) % tiles.length;
+      }
+      focusNext();
+      setInterval(focusNext, 1800);
+    </script>
+  </body>
+</html>

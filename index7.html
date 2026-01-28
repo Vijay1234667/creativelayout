@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, initial-scale=1.0" />
+    <title>Full Flip 300x250</title>
+
+    <style>
+      html,
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
+      }
+
+      /* full ad */
+      #ad {
+        width: 300px;
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .stage {
+        position: absolute;
+        inset: 0;
+        perspective: 1000px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .flip {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.8s ease;
+      }
+
+      .face {
+        position: absolute;
+        inset: 0;
+        background: #0f172a;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .face img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .back {
+        transform: rotateY(180deg);
+      }
+
+      /* CTA small overlay */
+      .cta {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 16px;
+        border-radius: 24px;
+        background: #22c55e;
+        color: #03240f;
+        font-weight: 900;
+        font-size: 11px;
+        text-decoration: none;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="ad">
+      <div class="stage">
+        <a class="flip" id="card" target="_blank">
+          <div class="face front">
+            <img id="imgFront" src="" />
+          </div>
+
+          <div class="face back">
+            <img id="imgBack" src="" />
+          </div>
+        </a>
+      </div>
+
+      <a class="cta" id="ctaBtn" target="_blank">SHOP NOW</a>
+    </div>
+
+    <script>
+      // ----- product list -----
+      const all = [
+        {
+          img: "https://assets.mobavenue.com/static/blinkit/ds/tonicwater.png",
+          link: "https://claude.ai/chat/a447f98c-f41a-4130-b3d6-e3eb25f49a80",
+        },
+        {
+          img: "https://assets.mobavenue.com/static/blinkit/ds/colin.png",
+          link: "https://www.google.com/",
+        },
+        
+      ];
+
+      const card = document.getElementById("card");
+      const imgF = document.getElementById("imgFront");
+      const imgB = document.getElementById("imgBack");
+      const cta = document.getElementById("ctaBtn");
+
+      let flipped = false;
+      let queue = [];
+
+      // shuffle helper
+      function shuffle(arr) {
+        return [...arr].sort(() => Math.random() - 0.5);
+      }
+
+      // refill queue if empty
+      function refill() {
+        queue = shuffle(all);
+      }
+
+      // get next (no repeat until cycle end)
+      function getNext() {
+        if (queue.length === 0) refill();
+        return queue.shift();
+      }
+
+      function setFront(p) {
+        imgF.src = p.img;
+        card.href = p.link;
+        cta.href = p.link;
+      }
+
+      function setBack(p) {
+        imgB.src = p.img;
+      }
+
+      // ---- initial load ----
+      let current = getNext();
+      let next = getNext();
+      setFront(current);
+      setBack(next);
+
+      // ---- flip loop ----
+      setInterval(() => {
+        flipped = !flipped;
+        card.style.transform = flipped ? "rotateY(180deg)" : "rotateY(0deg)";
+
+        setTimeout(() => {
+          if (flipped) {
+            current = getNext();
+            setFront(current);
+          } else {
+            next = getNext();
+            setBack(next);
+          }
+        }, 420);
+      }, 3000);
+    </script>
+  </body>
+</html>
