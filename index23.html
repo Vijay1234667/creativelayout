@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=300, height=250, initial-scale=1.0" />
+    <title>300x250 Static Ad</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=300, initial-scale=1.0">
-  <style>
-    html,
-   body {
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -15,109 +21,81 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family:Arial, sans-serif;
+        font-family: Arial, sans-serif;
                           background-color: #dddddd32;
-
 
       }
 
-    #ad {
-      width: 300px;
-      height: 250px;
-      background: #fff7ed;
-      border-radius: 12px;
-      position: relative;
-      box-sizing: border-box;
-    }
+      .ad {
+        width: 300px;
+        height: 250px;
+        padding: 12px;
+        position: relative;
+        background: #f9d84a;
+      }
 
-    .header {
-      height: 40px;
-      line-height: 40px;
-      padding: 0 10px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #fc8019;
-    }
+      /* Brand */
+      .brand {
+        font-size: 24px;
+        font-weight: 900;
+      }
 
-    .offer {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: #ef4444;
-      color: #fff;
-      font-size: 11px;
-      padding: 4px 6px;
-      border-radius: 6px;
-    }
+      /* Headline */
+      .headline {
+        margin-top: 6px;
+        font-size: 16px;
+        font-weight: 700;
+      }
 
-    .image {
-      height: 130px;
-      text-align: center;
-    }
+      /* Products */
+      .products {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 18px;
+      }
 
-    .image img {
-      margin-top: 10px;
-      width: 150px;
-    }
+      .products img {
+        width: 120px;
+      }
 
-    .title {
-      text-align: center;
-      font-size: 14px;
-      font-weight: bold;
-    }
+      /* Footer */
+      .footer {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        font-size: 16px;
+        font-weight: 900;
+      }
+      .footer span {
+        font-size: 12px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
 
-    .price {
-      text-align: center;
-      font-size: 14px;
-    }
+  <body>
+    <div class="ad">
+      <div class="brand">YourBrand</div>
 
-    .old {
-      text-decoration: line-through;
-      color: #888;
-      margin-right: 6px;
-    }
+      <div class="headline">Product A or Product B?</div>
 
-    .new {
-      color: #16a34a;
-      font-weight: bold;
-    }
-
-    .cta {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fc8019;
-      color: #fff;
-      padding: 7px 18px;
-      font-size: 13px;
-      font-weight: bold;
-      border-radius: 20px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <a href="https://www.swiggy.com" target="_blank" style="text-decoration:none;color:#000;">
-    <div id="ad">
-      <div class="header">Swiggy</div>
-      <div class="offer">50% OFF</div>
-
-      <div class="image">
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400">
+      <div class="products">
+        <a href="https://example.com/p1" target="_blank">
+          <img
+            src="https://assets.mobavenue.com/static/blinkit/ds/staplesrice.png"
+          />
+        </a>
+        <a href="https://example.com/p2" target="_blank">
+          <img
+            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
+          />
+        </a>
       </div>
 
-      <div class="title">Burger Combo</div>
-      <div class="price">
-        <span class="old">₹299</span>
-        <span class="new">₹149</span>
+      <div class="footer">
+        delivery in <strong>10 min</strong><br />
+        <span>download app ▶</span>
       </div>
-
-      <div class="cta">Order Now</div>
     </div>
-  </a>
-
-</body>
-
+  </body>
 </html>

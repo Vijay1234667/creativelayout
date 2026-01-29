@@ -1,234 +1,207 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=300, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flip Creative</title>
 
     <style>
-      html,
-     body {
+      * {
         margin: 0;
         padding: 0;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
+        box-sizing: border-box;
+      }
+      body {
         display: flex;
-        align-items: center;
         justify-content: center;
-        font-family:Arial, sans-serif;
-                          background-color: #dddddd32;
-
-
+        align-items: center;
+        min-height: 100vh;
       }
 
-      /* AD */
-      #ad {
+      .ad-container {
         width: 300px;
         height: 250px;
-        background: #fff;
-        border-radius: 14px;
-        overflow: hidden;
         position: relative;
+        overflow: hidden;
+        cursor: pointer;
       }
 
-      /* Timer */
-      .timer {
+      .ad-cube,
+      .cube-face a,
+      .cube-face img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .ad-cube {
         position: absolute;
-        top: 8px;
-        right: 8px;
-        background: #ef4444;
-        color: #fff;
-        font-size: 11px;
-        font-weight: 900;
-        padding: 4px 8px;
-        border-radius: 8px;
-        z-index: 10;
+        transform-style: preserve-3d;
+        transition: transform 1s ease-in-out;
       }
 
-      /* Feed */
-      .feed {
-        height: 208px;
-        overflow-y: auto;
-        scrollbar-width: none;
+      .cube-face {
+        position: absolute;
+        width: 300px;
+        height: 250px;
+        backface-visibility: hidden;
+        pointer-events: none;
       }
 
-      .feed::-webkit-scrollbar {
-        display: none;
+      .cube-face img {
+        object-fit: contain;
+        display: block;
       }
 
-      /* Card */
-      .card {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 8px;
-        margin: 6px;
-        border-radius: 12px;
-        background: #f8fafc;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-        text-decoration: none;
-        color: #000;
+      .face-1 {
+        transform: rotateY(0) translateZ(150px);
       }
-
-      .card img {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-        object-fit: cover;
+      .face-2 {
+        transform: rotateY(90deg) translateZ(150px);
       }
-
-      .title {
-        font-size: 12px;
-        font-weight: 700;
+      .face-3 {
+        transform: rotateY(180deg) translateZ(150px);
       }
-
-      .price {
-        font-size: 11px;
-      }
-
-      .old {
-        text-decoration: line-through;
-        opacity: 0.6;
-      }
-
-      .new {
-        color: #16a34a;
-        font-weight: 900;
+      .face-4 {
+        transform: rotateY(270deg) translateZ(150px);
       }
     </style>
   </head>
 
   <body>
-    <div id="ad">
-      <div class="timer" id="timer">00:08</div>
+    <div class="ad-container" id="adContainer">
+      <div class="ad-cube" id="adCube">
+        <div class="cube-face face-1" data-creative="0">
+          <a
+            data-impression="https://surgex.media-412.com/click?pid=2&offer_id=3733"
+            href="https://www.google.com/"
+          >
+            <img
+              src="https://assets.mobavenue.com/static/truecaller/creative/rotationbms.gif"
+            />
+          </a>
+        </div>
 
-      <div class="feed" id="feed">
-        <div id="track">
-          <a class="card" href="https://imagekit.io/dashboard/media-library"
-            ><img
-              src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300"
+        <div class="cube-face face-2" data-creative="1">
+          <a
+            data-impression="https://surgex.media-412.com/click?pid=2&offer_id=3731"
+            href="https://www.google.com/"
+          >
+            <img
+              src="https://assets.mobavenue.com/static/truecaller/creative/rotationcoinswitch.gif"
             />
-            <div>
-              <div class="title">Headphones</div>
-              <div class="price">
-                <span class="old">₹2999</span> <span class="new">₹899</span>
-              </div>
-            </div>
           </a>
-          <a class="card" href="https://imagekit.io/dashboard/media-library"
-            ><img
-              src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=300"
-            />
-            <div>
-              <div class="title">Smart Watch</div>
-              <div class="price">
-                <span class="old">₹4999</span> <span class="new">₹1699</span>
-              </div>
-            </div>
-          </a>
-          <a class="card" href="https://imagekit.io/dashboard/media-library"
-            ><img
-              src="https://images.unsplash.com/photo-1600180758890-6d09c5b32a9c?w=300"
-            />
-            <div>
-              <div class="title">Running Shoes</div>
-              <div class="price">
-                <span class="old">₹3999</span> <span class="new">₹1399</span>
-              </div>
-            </div>
-          </a>
-          <a class="card" href="https://imagekit.io/dashboard/media-library"
-            ><img
-              src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300"
-            />
-            <div>
-              <div class="title">Backpack</div>
-              <div class="price">
-                <span class="old">₹1999</span> <span class="new">₹699</span>
-              </div>
-            </div>
-          </a>
+        </div>
 
-          <!-- Duplicate for infinite loop -->
-          <a class="card" href="https://imagekit.io/dashboard/media-library"
-            ><img
-              src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300"
+        <div class="cube-face face-3" data-creative="2">
+          <a
+            data-impression="https://view.adjust.com/impression/1noi2csf"
+            href="https://www.google.com/"
+          >
+            <img
+              src="https://assets.mobavenue.com/static/truecaller/creative/rotationcoindcx.gif"
             />
-            <div>
-              <div class="title">Headphones</div>
-              <div class="price">
-                <span class="old">₹2999</span> <span class="new">₹899</span>
-              </div>
-            </div>
           </a>
-          <a class="card" href="https://imagekit.io/dashboard/media-library"
-            ><img
-              src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=300"
+        </div>
+
+        <div class="cube-face face-4" data-creative="3">
+          <a
+            data-impression="https://surgex.media-412.com/click?pid=2&offer_id=3735"
+            href="https://www.google.com/"
+          >
+            <img
+              src="https://assets.mobavenue.com/static/truecaller/creative/rotationbgmi.gif"
             />
-            <div>
-              <div class="title">Smart Watch</div>
-              <div class="price">
-                <span class="old">₹4999</span> <span class="new">₹1699</span>
-              </div>
-            </div>
-          </a>
-          <a class="card" href="https://imagekit.io/dashboard/media-library"
-            ><img
-              src="https://images.unsplash.com/photo-1600180758890-6d09c5b32a9c?w=300"
-            />
-            <div>
-              <div class="title">Running Shoes</div>
-              <div class="price">
-                <span class="old">₹3999</span> <span class="new">₹1399</span>
-              </div>
-            </div>
-          </a>
-          <a class="card" href="https://imagekit.io/dashboard/media-library"
-            ><img
-              src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300"
-            />
-            <div>
-              <div class="title">Backpack</div>
-              <div class="price">
-                <span class="old">₹1999</span> <span class="new">₹699</span>
-              </div>
-            </div>
           </a>
         </div>
       </div>
     </div>
 
     <script>
-      const feed = document.getElementById("feed");
-      let paused = false;
+      /* -------- SETTINGS -------- */
+      const ALLOWED_IMPRESSION = 1; //
+      const ROTATION_INTERVAL = 1000;
 
-      /* Pause on hover or touch */
-      feed.addEventListener("mouseenter", () => (paused = true));
-      feed.addEventListener("mouseleave", () => (paused = false));
-      feed.addEventListener("touchstart", () => (paused = true));
-      feed.addEventListener("touchend", () => (paused = false));
+      /* -------- STATE -------- */
+      const firedImpressions = [];
+      const adCube = document.getElementById("adCube");
+      const adContainer = document.getElementById("adContainer");
+      const faces = document.querySelectorAll(".cube-face");
 
-      /* Infinite auto scroll */
-      setInterval(() => {
-        if (!paused) {
-          feed.scrollTop += 1;
-          if (feed.scrollTop >= feed.scrollHeight / 2) {
-            feed.scrollTop = 0;
-          }
+      let rotationDegree = 0;
+      let currentFace = 0;
+      let rotationTimer = null;
+
+      /* -------- IMPRESSION LOGIC -------- */
+      function fireImpression(index) {
+        // only fire for creative-1
+        if (index !== ALLOWED_IMPRESSION) return;
+
+        if (firedImpressions.includes(index)) return;
+
+        const face = document.querySelector(`[data-creative="${index}"]`);
+        if (!face) return;
+
+        const url = face.querySelector("a").dataset.impression;
+        if (url) {
+          new Image().src = url;
+          firedImpressions.push(index);
+          console.log("🔥 Impression fired for creative:", index);
         }
-      }, 20);
+      }
 
-      /* Timer */
-      let t = 8;
-      const timer = document.getElementById("timer");
-      setInterval(() => {
-        const m = Math.floor(t / 60);
-        const s = t % 60;
-        timer.textContent =
-          String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
-        if (t <= 0) timer.style.display = "none";
-        t--;
-      }, 1000);
+      /* -------- ROTATION -------- */
+      function updatePointerEvents(activeIndex) {
+        faces.forEach((face, i) => {
+          face.style.pointerEvents = i === activeIndex ? "auto" : "none";
+        });
+      }
+      updatePointerEvents(0);
+
+      function rotateCube() {
+        stopRotation();
+
+        rotationDegree -= 90;
+        adCube.style.transform = `rotateY(${rotationDegree}deg)`;
+        currentFace = (currentFace + 1) % faces.length;
+
+        adCube.addEventListener("transitionend", function handler() {
+          updatePointerEvents(currentFace);
+          fireImpression(currentFace);
+          startRotation();
+          adCube.removeEventListener("transitionend", handler);
+        });
+      }
+
+      function startRotation() {
+        if (rotationTimer) return;
+        rotationTimer = setInterval(rotateCube, ROTATION_INTERVAL);
+      }
+
+      function stopRotation() {
+        clearInterval(rotationTimer);
+        rotationTimer = null;
+      }
+
+      startRotation();
+
+      adContainer.addEventListener("mouseenter", stopRotation);
+      adContainer.addEventListener("mouseleave", startRotation);
+
+      /* -------- CLICK — ALWAYS GOOGLE -------- */
+      document.addEventListener("click", function (e) {
+        const link = e.target.closest("a[data-impression]");
+        if (!link) return;
+
+        e.preventDefault();
+        stopRotation();
+
+        const face = link.closest("[data-creative]");
+        const index = parseInt(face.dataset.creative, 10);
+
+        fireImpression(index);
+
+        window.open("https://www.google.com/", "_blank");
+      });
     </script>
   </body>
 </html>

@@ -1,10 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=300, height=250, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=300, initial-scale=1.0">
   <style>
     html,
    body {
@@ -22,84 +21,103 @@
 
       }
 
-    /* Banner */
     #ad {
       width: 300px;
       height: 250px;
-      box-sizing: border-box;
-      padding: 10px;
-    }
-
-    /* TOP IMAGES */
-    .top {
-      height: 150px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .img-box {
-      flex: 1;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* BOTTOM OFFER STRIP */
-    .bottom {
-      margin-top: 10px;
-      height: 70px;
-      background: #f9fafb;
+      background: #fff7ed;
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
+      position: relative;
       box-sizing: border-box;
     }
 
-    /* Logo */
-    .logo {
+    .header {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px;
       font-size: 16px;
-      font-weight: 900;
+      font-weight: bold;
+      color: #fc8019;
     }
 
-    /* Offer text */
     .offer {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #ef4444;
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 6px;
+      border-radius: 6px;
+    }
+
+    .image {
+      height: 130px;
+      text-align: center;
+    }
+
+    .image img {
+      margin-top: 10px;
+      width: 150px;
+    }
+
+    .title {
+      text-align: center;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: bold;
+    }
+
+    .price {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .old {
+      text-decoration: line-through;
+      color: #888;
+      margin-right: 6px;
+    }
+
+    .new {
       color: #16a34a;
+      font-weight: bold;
+    }
+
+    .cta {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fc8019;
+      color: #fff;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: bold;
+      border-radius: 20px;
     }
   </style>
 </head>
 
 <body>
-  <div id="ad">
-    <!-- TOP IMAGES -->
-    <div class="top">
-      <div class="img-box">
-        <a href="https://www.google.com/">
-          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600" />
 
-        </a>
+  <a href="https://www.swiggy.com" target="_blank" style="text-decoration:none;color:#000;">
+    <div id="ad">
+      <div class="header">Swiggy</div>
+      <div class="offer">50% OFF</div>
+
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400">
       </div>
 
-      <div class="img-box">
-        <a href="https://www.google.com/"> <img
-            src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600" />
-        </a>
+      <div class="title">Burger Combo</div>
+      <div class="price">
+        <span class="old">₹299</span>
+        <span class="new">₹149</span>
       </div>
-    </div>
 
-    <div class="bottom">
-      <div class="logo">Your Logo</div>
-      <div class="offer">Mega Offers 🔥</div>
+      <div class="cta">Order Now</div>
     </div>
-  </div>
+  </a>
+
 </body>
 
 </html>

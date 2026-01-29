@@ -1,12 +1,11 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=300, initial-scale=1.0" />
-    <title>Auto Scroll Product Feed Ad</title>
 
-    <style>
-      html,
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=300, initial-scale=1.0" />
+  <style>
+    html,
     body {
         margin: 0;
         padding: 0;
@@ -17,233 +16,134 @@
         align-items: center;
         justify-content: center;
         font-family:Arial, sans-serif;
-                  background-color: #dddddd32;
+                          background-color: #dddddd32;
+
 
       }
 
-      /* Ad box */
-      #ad {
-        width: 300px;
-        height: 250px;
-        overflow: hidden;
-        background: #ffffff;
-      }
+    /* Ad */
+    #ad {
+      width: 300px;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
 
-      /* Header */
-      .header {
-        height: 42px;
-        background: #0f172a;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        padding: 0 10px;
-        font-size: 14px;
-        font-weight: 900;
-      }
+    /* Background */
+    .bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
 
-      .logo {
-        width: 22px;
-        height: 22px;
-        border-radius: 6px;
-        background: #facc15;
-        margin-right: 8px;
-      }
+    /* Overlay */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
 
-      /* Scroll area */
-      .feed {
-        height: 208px;
-        overflow: hidden;
-        position: relative;
-      }
+    /* TOP 60% */
+    .top {
+      position: absolute;
+      top: -150px;
+      left: 0;
+      width: 100%;
+      animation: dropTop 1s ease forwards 0.4s;
+    }
 
-      /* Moving list */
-      .track {
-        position: absolute;
+    .top img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* BOTTOM container (40%) */
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      /* 40% of 250 */
+      display: flex;
+    }
+
+    /* bottom left 50% */
+    .bottom-left {
+      width: 50%;
+      height: 100%;
+      transform: translateX(-100%);
+      animation: slideLeft 1s ease forwards 0.9s;
+    }
+
+    .bottom-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* bottom right 50% */
+    .bottom-right {
+      width: 50%;
+      height: 100%;
+      transform: translateX(100%);
+      animation: slideRight 1s ease forwards 0.9s;
+    }
+
+    .bottom-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Animations */
+    @keyframes dropTop {
+      to {
         top: 0;
-        left: 0;
-        right: 0;
       }
+    }
 
-      /* Product card */
-      .card {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 8px;
-        margin: 6px;
-        border-radius: 12px;
-        background: #f8fafc;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-        text-decoration: none;
-        color: #000;
+    @keyframes slideLeft {
+      to {
+        transform: translateX(0);
       }
+    }
 
-      .card img {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-        object-fit: cover;
+    @keyframes slideRight {
+      to {
+        transform: translateX(0);
       }
+    }
+  </style>
+</head>
 
-      .info {
-        flex: 1;
-      }
+<body>
+  <div id="ad">
+    <div class="bg"></div>
 
-      .title {
-        font-size: 12px;
-        font-weight: 700;
-        margin-bottom: 4px;
-      }
-
-      .price {
-        font-size: 11px;
-      }
-
-      .old {
-        text-decoration: line-through;
-        opacity: 0.6;
-        margin-right: 4px;
-      }
-
-      .new {
-        color: #16a34a;
-        font-weight: 900;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="ad">
-      <!-- HEADER -->
-      <div class="header">
-        <div class="logo"></div>
-        Your Brand
+    <div class="overlay">
+      <div class="top">
+        <a href="https://vercel.com/">
+          <img
+            src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png" />
+        </a>
       </div>
 
-      <!-- SCROLL FEED -->
-      <div class="feed">
-        <div class="track" id="track">
-          <!-- PRODUCT -->
-          <a class="card" href="#" target="_blank">
-            <img
-              src="https://assets.mobavenue.com/static/blinkit/ds/bisleri.png"
-            />
-            <div class="info">
-              <div class="title">Wireless Headphones</div>
-              <div class="price">
-                <span class="old">₹2999</span><span class="new">₹899</span>
-              </div>
-            </div>
+      <div class="bottom">
+        <div class="bottom-left">
+          <a href="https://www.google.com/">
+            <img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png" />
           </a>
-
-          <a class="card" href="#" target="_blank">
-            <img
-              src="https://assets.mobavenue.com/static/blinkit/ds/bisleri.png"
-            />
-            <div class="info">
-              <div class="title">Smart Watch</div>
-              <div class="price">
-                <span class="old">₹4999</span><span class="new">₹1699</span>
-              </div>
-            </div>
-          </a>
-
-          <a class="card" href="#" target="_blank">
-            <img
-              src="https://assets.mobavenue.com/static/blinkit/ds/bisleri.png"
-            />
-            <div class="info">
-              <div class="title">Running Shoes</div>
-              <div class="price">
-                <span class="old">₹3999</span><span class="new">₹1399</span>
-              </div>
-            </div>
-          </a>
-
-          <a class="card" href="#" target="_blank">
-            <img
-              src="https://assets.mobavenue.com/static/blinkit/ds/bisleri.png"
-            />
-            <div class="info">
-              <div class="title">Stylish Backpack</div>
-              <div class="price">
-                <span class="old">₹1999</span><span class="new">₹699</span>
-              </div>
-            </div>
+        </div>
+        <div class="bottom-right">
+          <a href="https://chatgpt.com/">
+            <img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png" />
           </a>
         </div>
       </div>
     </div>
+  </div>
+</body>
 
-    <script>
-      const feed = document.querySelector(".feed");
-      const track = document.getElementById("track");
-
-      track.innerHTML += track.innerHTML;
-
-      let y = 0;
-      const speed = 0.35;
-      let paused = false;
-      let hovering = false;
-
-      /* Hover tracking */
-      feed.addEventListener("mouseenter", () => {
-        hovering = true;
-        paused = true;
-      });
-      feed.addEventListener("mouseleave", () => {
-        hovering = false;
-        paused = false; // ⬅️ THIS is the fix
-      });
-
-      /* Touch pause */
-      feed.addEventListener("touchstart", () => (paused = true));
-      feed.addEventListener("touchend", () => (paused = false));
-
-      /* Manual mouse wheel */
-      feed.addEventListener("wheel", (e) => {
-        e.preventDefault();
-        paused = true;
-        y -= e.deltaY;
-        clamp();
-
-        clearTimeout(feed._wheelTimer);
-        feed._wheelTimer = setTimeout(() => {
-          if (!hovering) paused = false;
-        }, 200);
-      });
-
-      let lastTouchY = null;
-      feed.addEventListener("touchmove", (e) => {
-        const t = e.touches[0].clientY;
-        if (lastTouchY !== null) {
-          y += lastTouchY - t;
-          clamp();
-        }
-        lastTouchY = t;
-      });
-      feed.addEventListener("touchend", () => {
-        lastTouchY = null;
-        paused = false;
-      });
-
-      /* Infinite loop */
-      function clamp() {
-        const half = track.scrollHeight / 2;
-        if (y <= -half) y = 0;
-        if (y >= 0) y = -half;
-      }
-
-      /* Auto scroll */
-      function animate() {
-        if (!paused) {
-          y -= speed;
-          clamp();
-        }
-        track.style.transform = `translateY(${y}px)`;
-        requestAnimationFrame(animate);
-      }
-      animate();
-    </script>
-  </body>
 </html>

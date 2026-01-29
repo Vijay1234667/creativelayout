@@ -1,207 +1,121 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flip Creative</title>
+<html>
 
-    <style>
-      * {
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=300, height=250, initial-scale=1.0" />
+
+  <style>
+    html,
+    body {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
-
-      .ad-container {
-        width: 300px;
-        height: 250px;
-        position: relative;
         overflow: hidden;
-        cursor: pointer;
-      }
-
-      .ad-cube,
-      .cube-face a,
-      .cube-face img {
         width: 100%;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:Arial, sans-serif;
+                          background-color: #dddddd32;
+
+
       }
 
-      .ad-cube {
-        position: absolute;
-        transform-style: preserve-3d;
-        transition: transform 1s ease-in-out;
-      }
+    /* Banner */
+    #ad {
+      width: 300px;
+      height: 250px;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
 
-      .cube-face {
-        position: absolute;
-        width: 300px;
-        height: 250px;
-        backface-visibility: hidden;
-        pointer-events: none;
-      }
+    /* Image stack */
+    .stack {
+      position: absolute;
+      inset: 0;
+      transform: translateY(100%);
+      transition: transform 0.8s ease;
+    }
 
-      .cube-face img {
-        object-fit: contain;
-        display: block;
-      }
+    .stack.active {
+      transform: translateY(0);
+    }
 
-      .face-1 {
-        transform: rotateY(0) translateZ(150px);
-      }
-      .face-2 {
-        transform: rotateY(90deg) translateZ(150px);
-      }
-      .face-3 {
-        transform: rotateY(180deg) translateZ(150px);
-      }
-      .face-4 {
-        transform: rotateY(270deg) translateZ(150px);
-      }
-    </style>
-  </head>
+    .stack img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  <body>
-    <div class="ad-container" id="adContainer">
-      <div class="ad-cube" id="adCube">
-        <div class="cube-face face-1" data-creative="0">
-          <a
-            data-impression="https://surgex.media-412.com/click?pid=2&offer_id=3733"
-            href="https://www.google.com/"
-          >
-            <img
-              src="https://assets.mobavenue.com/static/truecaller/creative/rotationbms.gif"
-            />
-          </a>
-        </div>
+    .overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
 
-        <div class="cube-face face-2" data-creative="1">
-          <a
-            data-impression="https://surgex.media-412.com/click?pid=2&offer_id=3731"
-            href="https://www.google.com/"
-          >
-            <img
-              src="https://assets.mobavenue.com/static/truecaller/creative/rotationcoinswitch.gif"
-            />
-          </a>
-        </div>
+    /* Brand */
+    .brand {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #fff;
+      padding: 4px 8px;
+      z-index: 5;
+    }
 
-        <div class="cube-face face-3" data-creative="2">
-          <a
-            data-impression="https://view.adjust.com/impression/1noi2csf"
-            href="https://www.google.com/"
-          >
-            <img
-              src="https://assets.mobavenue.com/static/truecaller/creative/rotationcoindcx.gif"
-            />
-          </a>
-        </div>
+    /* CTA */
+    .cta {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #22c55e;
+      color: #000;
+      padding: 6px 14px;
+      border-radius: 20px;
+      z-index: 5;
+    }
+  </style>
+</head>
 
-        <div class="cube-face face-4" data-creative="3">
-          <a
-            data-impression="https://surgex.media-412.com/click?pid=2&offer_id=3735"
-            href="https://www.google.com/"
-          >
-            <img
-              src="https://assets.mobavenue.com/static/truecaller/creative/rotationbgmi.gif"
-            />
-          </a>
-        </div>
-      </div>
+<body>
+  <div id="ad">
+    <div class="brand">Instant Delivery ⚡</div>
+
+    <!-- STACK 1 -->
+    <div class="stack active">
+      <a href="https://blinkit.com/?srsltid=AfmBOopU4uiqhvJQyToXcEElTXYKYutP1EMsGP2kaBR76mA3ddLJQGZo">
+        <img src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png" />
+      </a>
+      <div class="overlay"></div>
     </div>
 
-    <script>
-      /* -------- SETTINGS -------- */
-      const ALLOWED_IMPRESSION = 1; //
-      const ROTATION_INTERVAL = 1000;
+    <!-- STACK 2 -->
+    <div class="stack">
+      <a href="https://www.google.com/">
+        <img src="https://assets.mobavenue.com/static/blinkit/ds/colin.png" />
+      </a>
+      <div class="overlay"></div>
+    </div>
 
-      /* -------- STATE -------- */
-      const firedImpressions = [];
-      const adCube = document.getElementById("adCube");
-      const adContainer = document.getElementById("adContainer");
-      const faces = document.querySelectorAll(".cube-face");
+    <div class="cta">Order Now</div>
+  </div>
 
-      let rotationDegree = 0;
-      let currentFace = 0;
-      let rotationTimer = null;
+  <script>
+    const stacks = document.querySelectorAll(".stack");
+    let i = 0;
 
-      /* -------- IMPRESSION LOGIC -------- */
-      function fireImpression(index) {
-        // only fire for creative-1
-        if (index !== ALLOWED_IMPRESSION) return;
+    setInterval(() => {
+      stacks[i].classList.remove("active");
+      i = (i + 1) % stacks.length;
+      stacks[i].classList.add("active");
+    }, 2800);
+  </script>
+</body>
 
-        if (firedImpressions.includes(index)) return;
-
-        const face = document.querySelector(`[data-creative="${index}"]`);
-        if (!face) return;
-
-        const url = face.querySelector("a").dataset.impression;
-        if (url) {
-          new Image().src = url;
-          firedImpressions.push(index);
-          console.log("🔥 Impression fired for creative:", index);
-        }
-      }
-
-      /* -------- ROTATION -------- */
-      function updatePointerEvents(activeIndex) {
-        faces.forEach((face, i) => {
-          face.style.pointerEvents = i === activeIndex ? "auto" : "none";
-        });
-      }
-      updatePointerEvents(0);
-
-      function rotateCube() {
-        stopRotation();
-
-        rotationDegree -= 90;
-        adCube.style.transform = `rotateY(${rotationDegree}deg)`;
-        currentFace = (currentFace + 1) % faces.length;
-
-        adCube.addEventListener("transitionend", function handler() {
-          updatePointerEvents(currentFace);
-          fireImpression(currentFace);
-          startRotation();
-          adCube.removeEventListener("transitionend", handler);
-        });
-      }
-
-      function startRotation() {
-        if (rotationTimer) return;
-        rotationTimer = setInterval(rotateCube, ROTATION_INTERVAL);
-      }
-
-      function stopRotation() {
-        clearInterval(rotationTimer);
-        rotationTimer = null;
-      }
-
-      startRotation();
-
-      adContainer.addEventListener("mouseenter", stopRotation);
-      adContainer.addEventListener("mouseleave", startRotation);
-
-      /* -------- CLICK — ALWAYS GOOGLE -------- */
-      document.addEventListener("click", function (e) {
-        const link = e.target.closest("a[data-impression]");
-        if (!link) return;
-
-        e.preventDefault();
-        stopRotation();
-
-        const face = link.closest("[data-creative]");
-        const index = parseInt(face.dataset.creative, 10);
-
-        fireImpression(index);
-
-        window.open("https://www.google.com/", "_blank");
-      });
-    </script>
-  </body>
 </html>

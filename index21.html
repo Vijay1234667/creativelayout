@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=300, height=250, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=300, height=250, initial-scale=1.0" />
 
   <style>
     html,
-    body {
+   body {
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -26,108 +26,80 @@
     #ad {
       width: 300px;
       height: 250px;
-      background: #ffffff;
-      display: flex;
       box-sizing: border-box;
-    }
-
-    .left {
-      width: 45%;
       padding: 10px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
-    /* Product boxes */
-    .product {
-      height: 48%;
+    /* TOP IMAGES */
+    .top {
+      height: 150px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .img-box {
+      flex: 1;
       border-radius: 10px;
       overflow: hidden;
-      background: #e5e7eb;
     }
 
-    .product img {
+    .img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    /* Arrow */
-    .arrow {
-      position: absolute;
-      left: 43%;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 20px;
+    /* BOTTOM OFFER STRIP */
+    .bottom {
+      margin-top: 10px;
+      height: 70px;
+      background: #f9fafb;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      box-sizing: border-box;
+    }
+
+    /* Logo */
+    .logo {
+      font-size: 16px;
       font-weight: 900;
-      color: #9ca3af;
-      z-index: 2;
     }
 
-    /* RIGHT SIDE (GIF like video) */
-    .right {
-      width: 55%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .right img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Brand label */
-    .brand {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.9);
-      padding: 6px 14px;
-      border-radius: 14px;
-      font-size: 12px;
-      font-weight: 900;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+    /* Offer text */
+    .offer {
+      font-size: 14px;
+      font-weight: 700;
+      color: #16a34a;
     }
   </style>
 </head>
 
 <body>
-
-
-
   <div id="ad">
-
-    <!-- LEFT PRODUCTS -->
-    <div class="left">
-      <div class="product">
-        <a href="https://www.google.com/"> <img
-            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400">
-        </a>
-      </div>
-
-      <div class="product">
+    <!-- TOP IMAGES -->
+    <div class="top">
+      <div class="img-box">
         <a href="https://www.google.com/">
-          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=400">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600" />
 
+        </a>
+      </div>
+
+      <div class="img-box">
+        <a href="https://www.google.com/"> <img
+            src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600" />
         </a>
       </div>
     </div>
 
-    <!-- ARROW -->
-
-    <!-- RIGHT GIF (VIDEO FEEL) -->
-    <div class="right">
-      <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif">
-      <div class="brand">Your Brand</div>
+    <div class="bottom">
+      <div class="logo">Your Logo</div>
+      <div class="offer">Mega Offers 🔥</div>
     </div>
-
   </div>
-
-
 </body>
 
 </html>

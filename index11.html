@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=300, initial-scale=1.0" />
-    <title>Scrollable Truecaller Ad</title>
+    <title>Auto Scroll Product Feed Ad</title>
 
     <style>
       html,
@@ -17,12 +17,11 @@
         align-items: center;
         justify-content: center;
         font-family:Arial, sans-serif;
-                          background-color: #dddddd32;
-
+                  background-color: #dddddd32;
 
       }
 
-      /* Main ad box */
+      /* Ad box */
       #ad {
         width: 300px;
         height: 250px;
@@ -30,31 +29,39 @@
         background: #ffffff;
       }
 
-      /* Brand header */
+      /* Header */
       .header {
-        height: 44px;
+        height: 42px;
         background: #0f172a;
         color: #fff;
         display: flex;
         align-items: center;
         padding: 0 10px;
-        font-weight: 900;
         font-size: 14px;
+        font-weight: 900;
       }
 
       .logo {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
         border-radius: 6px;
         background: #facc15;
         margin-right: 8px;
       }
 
+      /* Scroll area */
       .feed {
-        height: 206px; /* 250 - header */
-        overflow-y: auto;
-        padding: 8px;
-        box-sizing: border-box;
+        height: 208px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Moving list */
+      .track {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
       }
 
       /* Product card */
@@ -63,8 +70,8 @@
         align-items: center;
         gap: 10px;
         padding: 8px;
+        margin: 6px;
         border-radius: 12px;
-        margin-bottom: 8px;
         background: #f8fafc;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
         text-decoration: none;
@@ -72,8 +79,8 @@
       }
 
       .card img {
-        width: 52px;
-        height: 52px;
+        width: 50px;
+        height: 50px;
         border-radius: 10px;
         object-fit: cover;
       }
@@ -102,19 +109,12 @@
         color: #16a34a;
         font-weight: 900;
       }
-
-      .feed::-webkit-scrollbar {
-        width: 4px;
-      }
-      .feed::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 10px;
-      }
     </style>
   </head>
 
   <body>
     <div id="ad">
+      <!-- HEADER -->
       <div class="header">
         <div class="logo"></div>
         Your Brand
@@ -122,71 +122,128 @@
 
       <!-- SCROLL FEED -->
       <div class="feed">
-        <a class="card" href="#">
-          <img
-            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
-          />
-          <div class="info">
-            <div class="title">Smart Watch</div>
-            <div class="price">
-              <span class="old">₹4999</span>
-              <span class="new">₹1699</span>
+        <div class="track" id="track">
+          <!-- PRODUCT -->
+          <a class="card" href="#" target="_blank">
+            <img
+              src="https://assets.mobavenue.com/static/blinkit/ds/bisleri.png"
+            />
+            <div class="info">
+              <div class="title">Wireless Headphones</div>
+              <div class="price">
+                <span class="old">₹2999</span><span class="new">₹899</span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <a class="card" href="#">
-          <img
-            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
-          />
-          <div class="info">
-            <div class="title">Wireless Headphones</div>
-            <div class="price">
-              <span class="old">₹2999</span>
-              <span class="new">₹899</span>
+          <a class="card" href="#" target="_blank">
+            <img
+              src="https://assets.mobavenue.com/static/blinkit/ds/bisleri.png"
+            />
+            <div class="info">
+              <div class="title">Smart Watch</div>
+              <div class="price">
+                <span class="old">₹4999</span><span class="new">₹1699</span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <a class="card" href="#">
-          <img
-            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
-          />
-          <div class="info">
-            <div class="title">Running Shoes</div>
-            <div class="price">
-              <span class="old">₹3999</span>
-              <span class="new">₹1399</span>
+          <a class="card" href="#" target="_blank">
+            <img
+              src="https://assets.mobavenue.com/static/blinkit/ds/bisleri.png"
+            />
+            <div class="info">
+              <div class="title">Running Shoes</div>
+              <div class="price">
+                <span class="old">₹3999</span><span class="new">₹1399</span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <a class="card" href="#">
-          <img
-            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
-          />
-          <div class="info">
-            <div class="title">Stylish Backpack</div>
-            <div class="price">
-              <span class="old">₹1999</span>
-              <span class="new">₹699</span>
+          <a class="card" href="#" target="_blank">
+            <img
+              src="https://assets.mobavenue.com/static/blinkit/ds/bisleri.png"
+            />
+            <div class="info">
+              <div class="title">Stylish Backpack</div>
+              <div class="price">
+                <span class="old">₹1999</span><span class="new">₹699</span>
+              </div>
             </div>
-          </div>
-        </a>
-
-        <a class="card" href="#">
-          <img
-            src="https://assets.mobavenue.com/static/blinkit/ds/bluelays.png"
-          />
-          <div class="info">
-            <div class="title">Sports Sneakers</div>
-            <div class="price">
-              <span class="old">₹4599</span>
-              <span class="new">₹1799</span>
-            </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
+
+    <script>
+      const feed = document.querySelector(".feed");
+      const track = document.getElementById("track");
+
+      track.innerHTML += track.innerHTML;
+
+      let y = 0;
+      const speed = 0.35;
+      let paused = false;
+      let hovering = false;
+
+      /* Hover tracking */
+      feed.addEventListener("mouseenter", () => {
+        hovering = true;
+        paused = true;
+      });
+      feed.addEventListener("mouseleave", () => {
+        hovering = false;
+        paused = false; // ⬅️ THIS is the fix
+      });
+
+      /* Touch pause */
+      feed.addEventListener("touchstart", () => (paused = true));
+      feed.addEventListener("touchend", () => (paused = false));
+
+      /* Manual mouse wheel */
+      feed.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        paused = true;
+        y -= e.deltaY;
+        clamp();
+
+        clearTimeout(feed._wheelTimer);
+        feed._wheelTimer = setTimeout(() => {
+          if (!hovering) paused = false;
+        }, 200);
+      });
+
+      let lastTouchY = null;
+      feed.addEventListener("touchmove", (e) => {
+        const t = e.touches[0].clientY;
+        if (lastTouchY !== null) {
+          y += lastTouchY - t;
+          clamp();
+        }
+        lastTouchY = t;
+      });
+      feed.addEventListener("touchend", () => {
+        lastTouchY = null;
+        paused = false;
+      });
+
+      /* Infinite loop */
+      function clamp() {
+        const half = track.scrollHeight / 2;
+        if (y <= -half) y = 0;
+        if (y >= 0) y = -half;
+      }
+
+      /* Auto scroll */
+      function animate() {
+        if (!paused) {
+          y -= speed;
+          clamp();
+        }
+        track.style.transform = `translateY(${y}px)`;
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
   </body>
 </html>

@@ -6,7 +6,7 @@
 
     <style>
       html,
-      body {
+     body {
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -21,17 +21,8 @@
 
       }
 
-      /* Slider */
-      .slider {
+      #ad {
         width: 300px;
-        height: 250px;
-        overflow-x: auto;
-        display: flex;
-        scroll-snap-type: x mandatory;
-      }
-
-      .slide {
-        min-width: 300px;
         height: 250px;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -39,81 +30,146 @@
         gap: 4px;
         padding: 4px;
         box-sizing: border-box;
-        scroll-snap-align: start;
-        background: #111;
       }
 
-      /* Product tile */
-      .item {
-        background: #000;
-        border-radius: 8px;
+      .tile {
+        border-radius: 10px;
         overflow: hidden;
         position: relative;
+        cursor: pointer;
       }
 
-      .item img {
+      .tile img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
 
-      /* Brand badge */
+      /* Sliding images */
+      .auto img {
+        position: absolute;
+        inset: 0;
+        transition: opacity 0.8s ease;
+      }
+
+      .hidden {
+        opacity: 0;
+      }
+
+      /* Badge */
       .badge {
         position: absolute;
-        top: 4px;
-        left: 4px;
+        top: 5px;
+        left: 5px;
         background: #e11d48;
         color: #fff;
         font-size: 9px;
-        padding: 2px 6px;
+        padding: 3px 6px;
         border-radius: 6px;
         font-weight: bold;
+        z-index: 10;
       }
     </style>
   </head>
 
   <body>
-    <div class="slider">
-      <!-- SLIDE 1 -->
-      <div class="slide">
-        <a class="item" href="#"
-          ><span class="badge">HOT</span
-          ><img
-            src="https://assets.mobavenue.com/static/blinkit/ds/staplesoil.png"
-        /></a>
-        <a class="item" href="#"
-          ><span class="badge">SALE</span
-          ><img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
-        /></a>
-        <a class="item" href="#"
-          ><span class="badge">NEW</span
-          ><img
-            src="https://assets.mobavenue.com/static/blinkit/ds/greenlays.png"
-        /></a>
-        <a class="item" href="#"
-          ><span class="badge">🔥</span
-          ><img
-            src="https://assets.mobavenue.com/static/blinkit/ds/staplesrice.png"
-        /></a>
+    <div id="ad">
+      <!-- TOP LEFT -->
+      <div class="tile auto" id="auto1">
+        <span class="badge">Trending</span>
+        <img
+          src="https://assets.mobavenue.com/static/blinkit/ds/staplesrice.png"
+        />
+        <img
+          src="https://assets.mobavenue.com/static/blinkit/ds/orangelays.png"
+          class="hidden"
+        />
+        <img
+          src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
+          class="hidden"
+        />
       </div>
 
-      <!-- SLIDE 2 -->
-      <div class="slide">
-        <a class="item" href="#"
-          ><img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
-        /></a>
-        <a class="item" href="#"
-          ><img
-            src="https://assets.mobavenue.com/static/blinkit/ds/greenlays.png"
-        /></a>
-        <a class="item" href="#"
-          ><img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
-        /></a>
-        <a class="item" href="#"
-          ><img
-            src="https://assets.mobavenue.com/static/blinkit/ds/staplesoil.png"
-        /></a>
+      <!-- TOP RIGHT -->
+      <div class="tile auto" id="auto2">
+        <span class="badge">Hot</span>
+        <img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png" />
+        <img
+          src="https://assets.mobavenue.com/static/blinkit/ds/orangelays.png"
+          class="hidden"
+        />
+        <img
+          src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
+          class="hidden"
+        />
+      </div>
+
+      <!-- BOTTOM LEFT (also sliding) -->
+      <div class="tile auto" id="auto3">
+        <img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png" />
+        <img
+          src="https://assets.mobavenue.com/static/blinkit/ds/orangelays.png"
+          class="hidden"
+        />
+        <img
+          src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
+          class="hidden"
+        />
+      </div>
+
+      <!-- BOTTOM RIGHT (also sliding) -->
+      <div class="tile auto" id="auto4">
+        <img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png" />
+        <img
+          src="https://assets.mobavenue.com/static/blinkit/ds/orangelays.png"
+          class="hidden"
+        />
+        <img
+          src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
+          class="hidden"
+        />
       </div>
     </div>
+
+    <script>
+      function rotate(container, links) {
+        const imgs = container.querySelectorAll("img");
+        let i = 0;
+
+        container.addEventListener("click", () => {
+          window.open(links[i], "_blank");
+        });
+
+        setInterval(() => {
+          imgs[i].classList.add("hidden");
+          i = (i + 1) % imgs.length;
+          imgs[i].classList.remove("hidden");
+        }, 2000);
+      }
+
+      rotate(document.getElementById("auto1"), [
+        "https://nike.com",
+        "https://puma.com",
+        "https://zara.com",
+      ]);
+
+      rotate(document.getElementById("auto2"), [
+        "https://adidas.com",
+        "https://hm.com",
+        "https://uniqlo.com",
+      ]);
+
+      rotate(document.getElementById("auto3"), [
+        "https://amazon.com",
+        "https://flipkart.com",
+        "https://myntra.com",
+      ]);
+
+      rotate(document.getElementById("auto4"), [
+        "https://apple.com",
+        "https://samsung.com",
+        "https://mi.com",
+      ]);
+    </script>
   </body>
 </html>

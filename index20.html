@@ -1,12 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=300, height=250, initial-scale=1.0" />
 
-    <style>
-      html,
-      body {
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=300, height=250, initial-scale=1.0">
+
+  <style>
+    html,
+    body {
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -21,103 +22,112 @@
 
       }
 
-      /* Banner */
-      #ad {
-        width: 300px;
-        height: 250px;
-        background: #fff;
-        display: flex;
-      }
+    /* Banner */
+    #ad {
+      width: 300px;
+      height: 250px;
+      background: #ffffff;
+      display: flex;
+      box-sizing: border-box;
+    }
 
-      /* Left image */
-      .left {
-        width: 60%;
-        height: 100%;
-      }
+    .left {
+      width: 45%;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-      .left img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+    /* Product boxes */
+    .product {
+      height: 48%;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #e5e7eb;
+    }
 
-      /* Right content */
-      .right {
-        width: 40%;
-        padding: 14px 10px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
+    .product img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-      /* Offer text */
-      .offer {
-        font-size: 16px;
-        font-weight: 900;
-        line-height: 1.2;
-      }
+    /* Arrow */
+    .arrow {
+      position: absolute;
+      left: 43%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      font-weight: 900;
+      color: #9ca3af;
+      z-index: 2;
+    }
 
-      .offer span {
-        color: #16a34a;
-        font-size: 18px;
-      }
+    /* RIGHT SIDE (GIF like video) */
+    .right {
+      width: 55%;
+      position: relative;
+      overflow: hidden;
+    }
 
-      /* Sub text */
-      .sub {
-        font-size: 11px;
-        color: #374151;
-        margin-top: 6px;
-      }
+    .right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-      /* Badge */
-      .badge {
-        background: #000;
-        color: #fff;
-        font-size: 10px;
-        font-weight: 700;
-        padding: 4px 8px;
-        border-radius: 6px;
-        align-self: flex-start;
-      }
+    /* Brand label */
+    .brand {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 6px 14px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+    }
+  </style>
+</head>
 
-      /* CTA */
-      .cta {
-        background: #22c55e;
-        color: #000;
-        font-size: 12px;
-        font-weight: 700;
-        padding: 8px 10px;
-        border-radius: 20px;
-        text-align: center;
-      }
-    </style>
-  </head>
+<body>
 
-  <body>
-    <a href="https://example.com" target="_blank">
-      <div id="ad">
-        <div class="left">
-          <img
-            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600"
-          />
-        </div>
 
-        <div class="right">
-          <div>
-            <div class="badge">Fast Delivery ⚡</div>
 
-            <div class="offer">Just <span>₹149</span></div>
+  <div id="ad">
 
-            <div class="sub">
-              Fresh groceries<br />
-              at your doorstep
-            </div>
-          </div>
-
-          <div class="cta">Order Now</div>
-        </div>
+    <!-- LEFT PRODUCTS -->
+    <div class="left">
+      <div class="product">
+        <a href="https://www.google.com/"> <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400">
+        </a>
       </div>
-    </a>
-  </body>
+
+      <div class="product">
+        <a href="https://www.google.com/">
+          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=400">
+
+        </a>
+      </div>
+    </div>
+
+    <!-- ARROW -->
+
+    <!-- RIGHT GIF (VIDEO FEEL) -->
+    <div class="right">
+      <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif">
+      <div class="brand">Your Brand</div>
+    </div>
+
+  </div>
+
+
+</body>
+
 </html>

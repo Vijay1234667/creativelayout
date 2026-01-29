@@ -21,155 +21,214 @@
 
       }
 
+      /* AD */
       #ad {
         width: 300px;
         height: 250px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 4px;
-        padding: 4px;
-        box-sizing: border-box;
-      }
-
-      .tile {
-        border-radius: 10px;
+        background: #fff;
+        border-radius: 14px;
         overflow: hidden;
         position: relative;
-        cursor: pointer;
       }
 
-      .tile img {
-        width: 100%;
-        height: 100%;
+      /* Timer */
+      .timer {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: #ef4444;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 900;
+        padding: 4px 8px;
+        border-radius: 8px;
+        z-index: 10;
+      }
+
+      /* Feed */
+      .feed {
+        height: 208px;
+        overflow-y: auto;
+        scrollbar-width: none;
+      }
+
+      .feed::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Card */
+      .card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        margin: 6px;
+        border-radius: 12px;
+        background: #f8fafc;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+        text-decoration: none;
+        color: #000;
+      }
+
+      .card img {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
         object-fit: cover;
       }
 
-      /* Sliding images */
-      .auto img {
-        position: absolute;
-        inset: 0;
-        transition: opacity 0.8s ease;
+      .title {
+        font-size: 12px;
+        font-weight: 700;
       }
 
-      .hidden {
-        opacity: 0;
+      .price {
+        font-size: 11px;
       }
 
-      /* Badge */
-      .badge {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        background: #e11d48;
-        color: #fff;
-        font-size: 9px;
-        padding: 3px 6px;
-        border-radius: 6px;
-        font-weight: bold;
-        z-index: 10;
+      .old {
+        text-decoration: line-through;
+        opacity: 0.6;
+      }
+
+      .new {
+        color: #16a34a;
+        font-weight: 900;
       }
     </style>
   </head>
 
   <body>
     <div id="ad">
-      <!-- TOP LEFT -->
-      <div class="tile auto" id="auto1">
-        <span class="badge">Trending</span>
-        <img
-          src="https://assets.mobavenue.com/static/blinkit/ds/staplesrice.png"
-        />
-        <img
-          src="https://assets.mobavenue.com/static/blinkit/ds/orangelays.png"
-          class="hidden"
-        />
-        <img
-          src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
-          class="hidden"
-        />
-      </div>
+      <div class="timer" id="timer">00:08</div>
 
-      <!-- TOP RIGHT -->
-      <div class="tile auto" id="auto2">
-        <span class="badge">Hot</span>
-        <img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png" />
-        <img
-          src="https://assets.mobavenue.com/static/blinkit/ds/orangelays.png"
-          class="hidden"
-        />
-        <img
-          src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
-          class="hidden"
-        />
-      </div>
+      <div class="feed" id="feed">
+        <div id="track">
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300"
+            />
+            <div>
+              <div class="title">Headphones</div>
+              <div class="price">
+                <span class="old">₹2999</span> <span class="new">₹899</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=300"
+            />
+            <div>
+              <div class="title">Smart Watch</div>
+              <div class="price">
+                <span class="old">₹4999</span> <span class="new">₹1699</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1600180758890-6d09c5b32a9c?w=300"
+            />
+            <div>
+              <div class="title">Running Shoes</div>
+              <div class="price">
+                <span class="old">₹3999</span> <span class="new">₹1399</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300"
+            />
+            <div>
+              <div class="title">Backpack</div>
+              <div class="price">
+                <span class="old">₹1999</span> <span class="new">₹699</span>
+              </div>
+            </div>
+          </a>
 
-      <!-- BOTTOM LEFT (also sliding) -->
-      <div class="tile auto" id="auto3">
-        <img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png" />
-        <img
-          src="https://assets.mobavenue.com/static/blinkit/ds/orangelays.png"
-          class="hidden"
-        />
-        <img
-          src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
-          class="hidden"
-        />
-      </div>
-
-      <!-- BOTTOM RIGHT (also sliding) -->
-      <div class="tile auto" id="auto4">
-        <img src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png" />
-        <img
-          src="https://assets.mobavenue.com/static/blinkit/ds/orangelays.png"
-          class="hidden"
-        />
-        <img
-          src="https://assets.mobavenue.com/static/blinkit/ds/pepsi.png"
-          class="hidden"
-        />
+          <!-- Duplicate for infinite loop -->
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300"
+            />
+            <div>
+              <div class="title">Headphones</div>
+              <div class="price">
+                <span class="old">₹2999</span> <span class="new">₹899</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=300"
+            />
+            <div>
+              <div class="title">Smart Watch</div>
+              <div class="price">
+                <span class="old">₹4999</span> <span class="new">₹1699</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1600180758890-6d09c5b32a9c?w=300"
+            />
+            <div>
+              <div class="title">Running Shoes</div>
+              <div class="price">
+                <span class="old">₹3999</span> <span class="new">₹1399</span>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://imagekit.io/dashboard/media-library"
+            ><img
+              src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300"
+            />
+            <div>
+              <div class="title">Backpack</div>
+              <div class="price">
+                <span class="old">₹1999</span> <span class="new">₹699</span>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
 
     <script>
-      function rotate(container, links) {
-        const imgs = container.querySelectorAll("img");
-        let i = 0;
+      const feed = document.getElementById("feed");
+      let paused = false;
 
-        container.addEventListener("click", () => {
-          window.open(links[i], "_blank");
-        });
+      /* Pause on hover or touch */
+      feed.addEventListener("mouseenter", () => (paused = true));
+      feed.addEventListener("mouseleave", () => (paused = false));
+      feed.addEventListener("touchstart", () => (paused = true));
+      feed.addEventListener("touchend", () => (paused = false));
 
-        setInterval(() => {
-          imgs[i].classList.add("hidden");
-          i = (i + 1) % imgs.length;
-          imgs[i].classList.remove("hidden");
-        }, 2000);
-      }
+      /* Infinite auto scroll */
+      setInterval(() => {
+        if (!paused) {
+          feed.scrollTop += 1;
+          if (feed.scrollTop >= feed.scrollHeight / 2) {
+            feed.scrollTop = 0;
+          }
+        }
+      }, 20);
 
-      rotate(document.getElementById("auto1"), [
-        "https://nike.com",
-        "https://puma.com",
-        "https://zara.com",
-      ]);
-
-      rotate(document.getElementById("auto2"), [
-        "https://adidas.com",
-        "https://hm.com",
-        "https://uniqlo.com",
-      ]);
-
-      rotate(document.getElementById("auto3"), [
-        "https://amazon.com",
-        "https://flipkart.com",
-        "https://myntra.com",
-      ]);
-
-      rotate(document.getElementById("auto4"), [
-        "https://apple.com",
-        "https://samsung.com",
-        "https://mi.com",
-      ]);
+      /* Timer */
+      let t = 8;
+      const timer = document.getElementById("timer");
+      setInterval(() => {
+        const m = Math.floor(t / 60);
+        const s = t % 60;
+        timer.textContent =
+          String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+        if (t <= 0) timer.style.display = "none";
+        t--;
+      }, 1000);
     </script>
   </body>
 </html>
